@@ -1,16 +1,14 @@
-# React + Vite
+# 🔢 MathPlay - Desafio do Valor Posicional
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto desenvolvido para fins de aprendizado, focado em lógica de programação com React e estilização com Tailwind CSS. O objetivo do jogo é identificar corretamente o valor do dígito sublinhado em um número gerado aleatoriamente.
 
-Currently, two official plugins are available:
+## 🎯 Objetivo do Projeto
+Praticar os fundamentos do React, como gerenciamento de estado, hooks customizados, organização de projeto e deploy automatizado, enquanto crio uma ferramenta educativa útil.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias e Conceitos Praticados
+* **React (Vite)**
+* **Hooks (useState, useEffect):** Essenciais para controlar o valor da entrada do usuário, o feedback de erro/acerto e o ciclo de vida do jogo.
+* **Custom Hooks:** Criei `useQuestao` e `useTimer` para separar a lógica da interface (clean code).
+* **Tailwind CSS:** Com auxílio do Google Gemini utilizei tailwind para criar um design moderno, responsivo e com foco na experiência do usuário (UX).
+* **Lógica de Strings/Arrays:** Manipulação do número para destacar (sublinhar) apenas o dígito sorteado.
+* **Deploy:** Configuração de CI/CD simplificada usando a biblioteca `gh-pages`.
