@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import useQuestao from '../../hooks/useQuestao';
 import useTimer from '../../hooks/useTimer';
-import { TimerPanel } from '../../components/TimerPanel'; 
+import { TimerPanel } from '../../components/TimerPanel';
+
 
 export default function Home() {
   const {
@@ -35,10 +36,11 @@ export default function Home() {
   if (!questao) return null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4"
-      style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/marble-white.png")' }}>
-
-      <div className="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden max-w-2xl w-full border">
+    <div
+      className="pt-[100px] pb-10 min-h-screen flex justify-center bg-gray-100 p-4"
+      style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/marble-white.png")' }}
+    >
+      <div className="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden max-w-2xl w-full border h-fit">
 
         <div className="flex-1 p-8 flex flex-col justify-between">
           <div>
@@ -69,9 +71,8 @@ export default function Home() {
             />
 
             {feedback && (
-              <p className={`text-sm font-bold ${
-                feedback.includes('🎉') ? 'text-green-500' : 'text-red-500'
-              }`}>
+              <p className={`text-sm font-bold ${feedback.includes('🎉') ? 'text-green-500' : 'text-red-500'
+                }`}>
                 {feedback}
               </p>
             )}
@@ -79,7 +80,7 @@ export default function Home() {
 
           <button
             onClick={() => verificarResposta(inputValue)}
-            className="bg-[#00c569] hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full w-fit transition-colors uppercase tracking-wider text-sm mt-4"
+            className="bg-[#2563EB] hover:bg-sky-800 text-white font-bold py-3 px-8 rounded-full w-fit transition-colors uppercase tracking-wider text-sm mt-4"
           >
             Verificar
           </button>
