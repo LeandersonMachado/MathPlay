@@ -7,23 +7,27 @@ export function useQuestao() {
   const [feedback, setFeedback] = useState('');
 
   const gerarNovaQuestao = useCallback(() => {
-  const numero = Math.floor(Math.random() * 90000) + 1000;
-  const numStr = numero.toString();
-  const posicao = Math.floor(Math.random() * numStr.length);
-  const potencia = numStr.length - 1 - posicao;
+    const numero = Math.floor(Math.random() * 90000) + 1000;
+    const numStr = numero.toString();
+    const posicao = Math.floor(Math.random() * numStr.length);
+    const potencia = numStr.length - 1 - posicao;
 
-  const digitoParaCalculo = numStr[posicao] === '0' ? 1 : Number(numStr[posicao]);
-  
-  const valorReal = digitoParaCalculo * 10 ** potencia;
+    let valorReal;
 
-  setQuestao({
-    numeroCompleto: numStr,
-    posicaoSublinhada: posicao,
-    respostaCorreta: valorReal
-  });
+    if (numStr[posicao] === '0') {
+      valorReal = potencia === 0 ? 0 : 10 ** potencia;
+    } else {
+      valorReal = Number(numStr[posicao]) * 10 ** potencia;
+    }
 
-  setFeedback('');
-}, []);
+    setQuestao({
+      numeroCompleto: numStr,
+      posicaoSublinhada: posicao,
+      respostaCorreta: valorReal
+    });
+
+    setFeedback('');
+  }, []);
 
   const verificarResposta = useCallback((valor) => {
     if (!questao) return false;
