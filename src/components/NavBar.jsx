@@ -1,6 +1,7 @@
 import React from 'react';
 import { MenuData } from './MenuData';
 import Logo from '../assets/MathPlay.png';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -9,7 +10,9 @@ class NavBar extends React.Component {
             clicked: false
         };
     }
+    
 
+    
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked });
     };
@@ -48,15 +51,15 @@ class NavBar extends React.Component {
                                 ${this.state.clicked ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0 md:translate-x-0 md:opacity-100"}`}
                                 style={{ transitionDelay: this.state.clicked ? `${index * 70}ms` : "0ms" }}
                             >
-                                <a 
-                                    href={item.url} 
+                                <Link 
+                                    to={item.url} 
                                     className={`${item.cName} flex items-center justify-center gap-3 transition-all duration-300 
-                                    hover:text-yellow-400 hover:bg-blue-700 md:hover:bg-transparent
+                                    hover:text-yellow-300 hover:bg-blue-700 md:hover:bg-transparent
                                     rounded-lg py-3 md:py-0 text-[1.1rem] font-medium`}
                                 >
-                                    <i className={`${item.icon} text-yellow-400 md:text-white`}></i> 
+                                    <i className={`${item.icon} `}></i> 
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         );
                     })}
