@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div
       className="pt-[100px] pb-10 min-h-screen flex justify-center bg-gray-100 p-4"
-      style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/marble-white.png")' }}
+
     >
       <div className="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden max-w-2xl w-full border h-fit">
 
