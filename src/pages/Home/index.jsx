@@ -4,8 +4,8 @@ import GameCard from '../../components/GameCard';
 export default function Home() {
 
   useEffect(() => {
-          document.title = 'Página Inicial | MathPlay';
-      }, []);
+    document.title = 'Página Inicial | MathPlay';
+  }, []);
 
   return (
     <div
@@ -56,6 +56,13 @@ export default function Home() {
               description="Descubra o valor posicional de um dígito em números naturais."
               level="Ensino Fundamental"
               to="/valor-do-digito"
+            />
+
+            <GameCard
+              title="Descubra o número π"
+              description="Digite corretamente os dígitos do número π e veja até onde consegue chegar."
+              level="Raciocínio lógico"
+              to="/descubra-pi"
             />
           </div>
         </section>
