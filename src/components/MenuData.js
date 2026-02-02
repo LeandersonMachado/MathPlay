@@ -1,18 +1,18 @@
 export const MenuData = [
     {
-        title:'Home',
+        title:'Página Inicial',
         url: '/',
         cName:'nav-links',
         icon:'fa-solid fa-house-user'
     },
      {
-        title:'About',
-        url: '#',
+        title:'Sobre',
+        url: '/sobre',
         cName:'nav-links',
         icon:'fa-solid fa-info-circle'
     },
      {
-        title:'Games',
+        title:'Jogos',
         url: '/valor-do-digito',
         cName:'nav-links',
         icon:'fa-solid fa-gamepad'

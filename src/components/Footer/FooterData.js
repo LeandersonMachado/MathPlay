@@ -1,12 +1,12 @@
 export const FooterData = [
     {
         title: "Politica de Privacidade",
-        url: "/policy",
+        url: "/politica-de-privacidade",
         icon: "fa-solid fa-shield-halved"
     },
     {
         title: "Termos de Uso",
-        url: "/terms",
+        url: "/termos-de-uso",
         icon: "fa-solid fa-file-contract"
     },
     {
