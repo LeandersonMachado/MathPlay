@@ -5,7 +5,7 @@ import PiDisplay from "../../components/Games/PiDisplay";
 export default function DescubraPi() {
 
     useEffect(() => {
-        document.title = 'Descubra Pi π | MathPlay';
+        document.title = "Descubra Pi π | MathPlay";
     }, []);
 
     const PI = "141592653589793238462643383279";
@@ -17,14 +17,19 @@ export default function DescubraPi() {
     const inputRef = useRef(null);
 
     function verificarResposta() {
-
         if (!entrada) return;
+        if (posicao >= PI.length) return;
 
         if (entrada === PI[posicao]) {
-            setPosicao(prev => prev + 1);
-            setResultado("acerto");
+            if (posicao + 1 === PI.length) {
+                setPosicao(prev => prev + 1);
+                setResultado("fim");
+            } else {
+                setPosicao(prev => prev + 1);
+                setResultado("acerto");
+            }
         } else {
-            setResultado("erro");
+            reiniciarJogo();
         }
 
         setEntrada("");
@@ -37,7 +42,9 @@ export default function DescubraPi() {
     }
 
     useEffect(() => {
-        inputRef.current?.focus();
+        if (resultado !== "fim") {
+            inputRef.current?.focus();
+        }
     }, [posicao, resultado]);
 
     return (
@@ -54,6 +61,7 @@ export default function DescubraPi() {
                         ref={inputRef}
                         type="text"
                         maxLength={1}
+                        disabled={resultado === "fim"}
                         value={entrada}
                         onChange={e =>
                             setEntrada(e.target.value.replace(/\D/g, ""))
@@ -64,32 +72,36 @@ export default function DescubraPi() {
                             }
                         }}
                         className="
-              w-20 
-              text-center 
-              text-2xl 
-              font-semibold 
-              border 
-              border-gray-300 
-              rounded-lg 
-              p-2 
-              focus:outline-none 
-              focus:ring-2 
-              focus:ring-blue-500
-            "
+                            w-20
+                            text-center
+                            text-2xl
+                            font-semibold
+                            border
+                            border-gray-300
+                            rounded-lg
+                            p-2
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-blue-500
+                            disabled:bg-gray-100
+                        "
                     />
 
                     <div className="flex gap-4">
                         <button
                             onClick={verificarResposta}
+                            disabled={resultado === "fim"}
                             className="
-                px-6 
-                py-2 
-                bg-blue-600 
-                text-white 
-                rounded-lg 
-                hover:bg-blue-700 
-                transition
-              "
+                                px-6
+                                py-2
+                                bg-blue-600
+                                text-white
+                                rounded-lg
+                                hover:bg-blue-700
+                                transition
+                                disabled:opacity-50
+                                disabled:cursor-not-allowed
+                            "
                         >
                             Confirmar
                         </button>
@@ -97,14 +109,14 @@ export default function DescubraPi() {
                         <button
                             onClick={reiniciarJogo}
                             className="
-                px-6 
-                py-2 
-                bg-gray-200 
-                text-gray-700 
-                rounded-lg 
-                hover:bg-gray-300 
-                transition
-              "
+                                px-6
+                                py-2
+                                bg-gray-200
+                                text-gray-700
+                                rounded-lg
+                                hover:bg-gray-300
+                                transition
+                            "
                         >
                             Reiniciar
                         </button>
@@ -116,9 +128,9 @@ export default function DescubraPi() {
                         </p>
                     )}
 
-                    {resultado === "erro" && (
-                        <p className="text-red-600 font-semibold">
-                            Tente novamente
+                    {resultado === "fim" && (
+                        <p className="text-blue-600 font-semibold text-center">
+                            Parabéns! Você chegou ao fim da sequência do número π 🎉
                         </p>
                     )}
                 </div>
