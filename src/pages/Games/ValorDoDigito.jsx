@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import useQuestao from '../hooks/useQuestao';
-import useTimer from '../hooks/useTimer';
+import useQuestao from '../../hooks/useQuestao';
+import useTimer from '../../hooks/useTimer';
 
-import GameLayout from '../components/GameLayout';
-import GameHUD from '../components/GameHud';
+import GameLayout from '../../components/GameLayout';
+import GameHUD from '../../components/GameHud';
 
 
 

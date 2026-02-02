@@ -4,8 +4,11 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import PrivacyPolicy from './pages/Policy/PrivacyPolicy';
 import TermsOfUse from './pages/Policy/TermsOfUse';
-import ValorDoDigito from './pages/ValorDoDigito'
+import ValorDoDigito from './pages/Games/ValorDoDigito'
+import DescubraPi from './pages/Games/DescubraPi';
+
 import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
     return (
@@ -19,6 +22,7 @@ function App() {
                     <Route path="/policy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfUse />} />
                     <Route path="/valor-do-digito" element={<ValorDoDigito />} />
+                    <Route path="/descubra-pi" element={<DescubraPi />} />
                 </Routes>
             </main>
 
