@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Footer extends React.Component {
     render() {
         return (
-            <div className="bg-[#2563EB] text-white text-center p-4 mt-10">
+            <div className="bg-[#2563EB] text-white text-center p-4">
 
                 <ul className="flex justify-center gap-6 mb-4">
 

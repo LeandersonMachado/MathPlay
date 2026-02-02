@@ -13,7 +13,7 @@ export const MenuData = [
     },
      {
         title:'Games',
-        url: '#',
+        url: '/valor-do-digito',
         cName:'nav-links',
         icon:'fa-solid fa-gamepad'
     },

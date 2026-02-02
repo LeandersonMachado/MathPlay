@@ -5,8 +5,8 @@ export const FooterData = [
         icon: "fa-solid fa-shield-halved"
     },
     {
-        title: "Termos de Serviço",
-        url: "#",
+        title: "Termos de Uso",
+        url: "/terms",
         icon: "fa-solid fa-file-contract"
     },
     {

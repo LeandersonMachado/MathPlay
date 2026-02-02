@@ -27,9 +27,9 @@ class NavBar extends React.Component {
                         alt="Logo" 
                         className="h-10 w-auto object-contain" 
                     />
-                    <h1 className="text-white font-bold text-xl md:text-2xl tracking-tight">
+                    <Link to="/" className="text-white font-bold text-xl md:text-2xl tracking-tight">
                         MathPlay
-                    </h1>
+                    </Link>
                 </div>
 
                 <div className="md:hidden z-[100] cursor-pointer text-2xl w-10 h-10 flex items-center justify-center rounded-md active:bg-blue-700 transition-colors" onClick={this.handleClick}>

@@ -1,102 +1,101 @@
-import { useEffect, useState } from 'react';
-import useQuestao from '../../hooks/useQuestao';
-import useTimer from '../../hooks/useTimer';
-import { TimerPanel } from '../../components/TimerPanel';
-
+import { useEffect } from 'react';
+import GameCard from '../../components/GameCard';
 
 export default function Home() {
-  const {
-    questao,
-    feedback,
-    respondidas,
-    pontuacao,
-    gerarNovaQuestao,
-    verificarResposta
-  } = useQuestao();
-
-  const { minutes, seconds } = useTimer();
-
-  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    gerarNovaQuestao();
-  }, [gerarNovaQuestao]);
-
-  useEffect(() => {
-    if (feedback === 'Correto! 🎉') {
-      const t = setTimeout(() => {
-        setInputValue('');
-        gerarNovaQuestao();
-      }, 1000);
-
-      return () => clearTimeout(t);
-    }
-  }, [feedback, gerarNovaQuestao]);
-
-  if (!questao) return null;
+          document.title = 'Página Inicial | MathPlay';
+      }, []);
 
   return (
     <div
-      className="pt-[100px] pb-10 min-h-screen flex justify-center bg-gray-100 p-4"
-
+      className="pt-[100px] pb-16 min-h-screen bg-gray-100 px-4"
+      style={{
+      }}
     >
-      <div className="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden max-w-2xl w-full border h-fit">
+      <div className="max-w-6xl mx-auto space-y-16">
 
-        <div className="flex-1 p-8 flex flex-col justify-between">
-          <div>
-            <h2 className="text-gray-700 text-xl font-medium mb-8">
-              Qual o valor do dígito sublinhado?
-            </h2>
+        <section className="bg-white rounded-3xl shadow-xl border p-10 text-center">
+          <h1 className="text-4xl font-bold text-[#2563EB] mb-4">
+            Aprenda Matemática Jogando
+          </h1>
 
-            <div className="text-5xl font-bold tracking-widest text-gray-800 mb-10">
-              {questao.numeroCompleto.split('').map((char, i) => (
-                <span
-                  key={i}
-                  className={i === questao.posicaoSublinhada
-                    ? 'border-b-4 border-gray-800 pb-1 text-green-600'
-                    : ''}
-                >
-                  {char}
-                </span>
-              ))}
+          <p className="text-gray-600 text-lg mb-8">
+            Jogos educativos gratuitos para treinar lógica, números e raciocínio.
+          </p>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            {/*<Link
+              to="/jogos"
+              className="bg-[#2563EB] hover:bg-sky-800 text-white font-bold py-3 px-8 rounded-full uppercase tracking-wider text-sm transition-colors"
+            >
+              Começar a Jogar
+            </Link> */}
+
+            <a
+              href="#jogos"
+              className="border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB] hover:text-white font-bold py-3 px-8 rounded-full uppercase tracking-wider text-sm transition-colors"
+            >
+              Ver Jogos
+            </a>
+          </div>
+        </section>
+
+        {/* JOGOS */}
+        <section
+          id="jogos"
+          className="scroll-mt-[90px]"
+        >
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+            Jogos Disponíveis
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <GameCard
+              title="Valor do Dígito"
+              description="Descubra o valor posicional de um dígito em números naturais."
+              level="Ensino Fundamental"
+              to="/valor-do-digito"
+            />
+          </div>
+        </section>
+
+        <section className="bg-white rounded-3xl shadow-md border p-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Por que MathPlay?
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <i className="fa-solid fa-graduation-cap text-3xl text-[#2563EB] mb-3"></i>
+              <p className="font-bold">Educativo</p>
             </div>
 
-            <input
-              type="number"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && verificarResposta(inputValue)}
-              placeholder="Ex: 100"
-              className="w-40 p-3 bg-gray-100 rounded-lg text-center text-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 mb-4"
-            />
+            <div>
+              <i className="fa-solid fa-gift text-3xl text-[#2563EB] mb-3"></i>
+              <p className="font-bold">Gratuito</p>
+            </div>
 
-            {feedback && (
-              <p className={`text-sm font-bold ${feedback.includes('🎉') ? 'text-green-500' : 'text-red-500'
-                }`}>
-                {feedback}
-              </p>
-            )}
+            <div>
+              <i className="fa-solid fa-user-check text-3xl text-[#2563EB] mb-3"></i>
+              <p className="font-bold">Sem cadastro</p>
+            </div>
+
+            <div>
+              <i className="fa-solid fa-brain text-3xl text-[#2563EB] mb-3"></i>
+              <p className="font-bold">Aprendizado real</p>
+            </div>
           </div>
+        </section>
 
-          <button
-            onClick={() => verificarResposta(inputValue)}
-            className="bg-[#2563EB] hover:bg-sky-800 text-white font-bold py-3 px-8 rounded-full w-fit transition-colors uppercase tracking-wider text-sm mt-4"
-          >
-            Verificar
-          </button>
-        </div>
+        <section className="text-center text-gray-600 max-w-3xl mx-auto">
+          <p>
+            O MathPlay foi criado para ajudar estudantes, professores e curiosos
+            a praticar matemática de forma simples, acessível e divertida,
+            diretamente no navegador.
+          </p>
+        </section>
 
-        <div className="w-full md:w-48 flex flex-col text-white text-center font-bold">
-          <div className="bg-[#00c569] p-3 text-sm">Questões</div>
-          <div className="bg-[#9c9c9c] p-4 text-3xl">{respondidas}</div>
-
-          <TimerPanel minutes={minutes} seconds={seconds} />
-
-          <div className="bg-[#ff5b5b] p-3 text-sm">Pontuação</div>
-          <div className="bg-[#9c9c9c] p-4 text-3xl flex items-center justify-center">
-            {pontuacao}
-          </div>
-        </div>
       </div>
     </div>
   );
