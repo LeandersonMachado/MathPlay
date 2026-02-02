@@ -29,7 +29,8 @@ export default function DescubraPi() {
                 setResultado("acerto");
             }
         } else {
-            reiniciarJogo();
+            setResultado("erro");
+            setTimeout(reiniciarJogo, 1000);
         }
 
         setEntrada("");
@@ -60,6 +61,7 @@ export default function DescubraPi() {
                     <input
                         ref={inputRef}
                         type="text"
+                        inputMode="numeric"
                         maxLength={1}
                         disabled={resultado === "fim"}
                         value={entrada}
@@ -128,9 +130,16 @@ export default function DescubraPi() {
                         </p>
                     )}
 
+                    {resultado === "erro" && (
+                        <p className="text-red-600 font-semibold">
+                            Ops! Número errado. O jogo foi reiniciado.
+                        </p>
+                    )}
+
+
                     {resultado === "fim" && (
                         <p className="text-blue-600 font-semibold text-center">
-                            Parabéns! Você chegou ao fim da sequência do número π 🎉
+                            Parabéns! Você chegou ao fim da sequência do número π
                         </p>
                     )}
                 </div>
