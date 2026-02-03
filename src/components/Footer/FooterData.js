@@ -11,7 +11,7 @@ export const FooterData = [
     },
     {
         title: "Contato",
-        url: "#",
+        url: "/contato",
         icon: "fa-solid fa-envelope"
     }
 ]

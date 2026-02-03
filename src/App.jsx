@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About  from './pages/Policy/About';
 import PrivacyPolicy from './pages/Policy/PrivacyPolicy';
 import TermsOfUse from './pages/Policy/TermsOfUse';
+import Contact from './pages/Policy/Contact';
 import ValorDoDigito from './pages/Games/ValorDoDigito'
 import DescubraPi from './pages/Games/DescubraPi';
 
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/sobre" element={<About />} />
                     <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
                     <Route path="/termos-de-uso" element={<TermsOfUse />} />
+                    <Route path="/contato" element={<Contact />} />
                     <Route path="/valor-do-digito" element={<ValorDoDigito />} />
                     <Route path="/descubra-pi" element={<DescubraPi />} />
                 </Routes>
